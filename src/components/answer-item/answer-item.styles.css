@@ -1,0 +1,45 @@
+.answer-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	list-style-type: none;
+	font-size: var(--text-sm);
+	font-weight: 500;
+	color: var(--light-blue);
+	padding: var(--space-xs) calc(var(--space-sm) * 1.3);
+	background: var(--white-primary);
+	border: 2px solid var(--light-blue);
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.answer-item:hover {
+	background: var(--orange);
+	color: var(--white-primary);
+	border: none;
+	transition: .3s;
+}
+
+.answer-item--bg-correct {
+	background: var(--green);
+}
+
+.answer-item--bg-wrong {
+	background: var(--red);
+}
+
+.answer-item.answer-item--bg-correct,
+.answer-item.answer-item--bg-wrong {
+	color: var(--white-primary);
+	border: none;
+}
+
+.answer-item__details {
+	display: flex;
+	align-items: center;
+}
+
+.answer-item__letter {
+	margin-right: var(--space-lg);
+	font-size: var(--text-md);
+}
