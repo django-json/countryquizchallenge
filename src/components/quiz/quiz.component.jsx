@@ -5,6 +5,8 @@ import "./quiz.styles.css";
 import QuizCategory from "../quiz-category/quiz-category.component";
 import QuizContentContainer from "../quiz-content/quiz-content.container";
 
+import { setWithExpiry, getWithExpiry, transformData } from "../../utils/utils";
+
 class Quiz extends Component {
 	constructor() {
 		super();
@@ -29,6 +31,7 @@ class Quiz extends Component {
 		this.finishQuizHandler = this.finishQuizHandler.bind(this);
 		this.tryAgain = this.tryAgain.bind(this);
 		this.categoryChangeHandler = this.categoryChangeHandler.bind(this);
+		this.getQuiz = this.getQuiz.bind(this);
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -44,15 +47,31 @@ class Quiz extends Component {
 
 	getQuiz() {
 		const { category } = this.state;
-
-		fetch(`http://localhost:3001/api/quiz/${category}`)
-			.then((res) => res.json())
-			.then((quiz) =>
-				this.setState({ quiz }, () => {
-					this.loadQuiz();
+		const storedQuiz = getWithExpiry("quiz");
+		//Fetch from origin if item doesn't exist in the localstorage, otherwise.
+		if (storedQuiz === null) {
+			console.log("Fetching data from origin...");
+			fetch("https://restcountries.eu/rest/v2/all")
+				.then((res) => res.json())
+				.then((data) => {
+					//Store data to local storage with 86400000 ms or 1 day expiration
+					setWithExpiry("quiz", data, 86400000);
+					const quiz = transformData(data, category);
+					this.setState({ quiz }, () => {
+						this.loadQuiz();
+					});
+					return;
 				})
-			)
-			.catch((err) => console.log(err));
+				.catch((err) => {
+					console.log("Error fetching from origin: ", err);
+				});
+		} else {
+			console.log("Fetching data from the local storage...");
+			const quiz = transformData(storedQuiz, category);
+			this.setState({ quiz }, () => {
+				this.loadQuiz();
+			});
+		}
 	}
 
 	loadQuiz() {
