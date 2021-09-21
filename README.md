@@ -41,7 +41,7 @@
 
 - You can check the demo [here](https://countryquizchallenge.netlify.app).
 - This challenge is fun to do. I am able to work with data structure where I design the raw data fetched from the third-party API in a new form that suit the app needs.
-- This is the repo I deployed to Netlify so I could directly fetched the API data in the client side and store the data to the localstorage but I have done an experimentation where I have a client app (you can check the other branch in this repo) that run together with my own [backend API](https://github.com/django-json/countryquizchallenge-api) using Express.js and Redis (for caching the fetched data).
+- This is the repo I deployed to Netlify so I could directly fetched the API data in the client side and store the data to the localstorage but I have done an experimentation where I have a client app (you can check the other branch in this repo) that run together with my own [backend API](https://github.com/django-json/countryquizchallenge-api) using Express.js and Redis (for data caching).
 
 ### Built With
 
