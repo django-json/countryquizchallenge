@@ -1,5 +1,5 @@
 ## Note:
-- This is the client application version of countryquizchallenge run with the backend server [countryquizchallenge-api](https://github.com/django-json/countryquizchallenge-api).
+- This is the client application of Country Quiz App run with the backend API [countryquizchallenge-api](https://github.com/django-json/countryquizchallenge-api).
 
 ## How To Use
 
