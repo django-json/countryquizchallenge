@@ -3,12 +3,16 @@ import classNames from "classnames";
 
 import "./button.styles.css";
 
-const Button = ({ variant, label, handleClick }) => {
-	const classes = classNames("btn", {
+const Button = ({ variant, label, handleClick, className }) => {
+	const classes = classNames("btn", className, {
 		[`btn--${variant}`]: variant,
 	});
 
-	return <button className={classes}>{label}</button>;
+	return (
+		<button className={classes} onClick={handleClick}>
+			{label}
+		</button>
+	);
 };
 
 export default Button;

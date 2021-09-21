@@ -13,11 +13,16 @@
 	cursor: pointer;
 }
 
+.btn:hover,
+.btn:focus {
+	background: rgb(280,130,38);
+}
+
 .btn--outline {
 	font-weight: 600;
-	color: var(--dark-blue);
+	color: var(--light-blue);
 	background: var(--white-primary);
-	border: 2px solid var(--dark-blue);
+	border: 2px solid var(--light-blue);
 	border-radius: 12px;
 	box-shadow: none;
 }
@@ -27,4 +32,8 @@
 	background: var(--orange);
 	border: none;
 	transition: .3s;
+}
+
+.btn-w-100 {
+	width: 100%;
 }

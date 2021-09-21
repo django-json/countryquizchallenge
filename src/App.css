@@ -20,6 +20,7 @@
   /* Colors | Global */
   --white-primary: #FFFFFF;
   --white-secondary: #F2F2F2;
+  --blue: #2F527B;
   --dark-blue: #1D355D;
   --light-blue: rgba(96, 102, 208, 0.8);
   --orange: #F9A826;
@@ -28,7 +29,7 @@
 }
 
 .material-icons {
-  font-size: 20px;
+  font-size: 24px;
   color: var(--white-secondary);
 }
 
@@ -45,6 +46,34 @@
   left: 0;
   right: 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  padding-top: var(--space-xl);
+}
+
+.App .quiz {
+  align-self: center;
+}
+
+.App .footer {
+  margin-top: calc(1.5 * var(--space-xl));
+}
+
+@media screen and (max-width: 500px) {
+  :root {
+    /* Spacing | Global */
+    --space-sm: var(--space-xs);
+    --space-md: calc(1.10 * var(--space-unit));
+    --space-xl: var(--space-lg);
+
+    /* Font Sizes | Global */
+    --text-xl: 36px;
+    --text-lg: 24px;
+    --text-md: 18px;
+    --text-sm: 16px;
+  }
+
+  .App {
+    padding: var(--space-lg) var(--space-sm) var(--space-sm);
+  }
 }

@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 
 import "./App.css";
 
-import QuizContainer from "./components/quiz-container/quiz-container.component";
+import Quiz from "./components/quiz/quiz.component";
+import Footer from "./components/footer/footer.component";
 
-class App extends Component {
-  render() {
-    return (
-      <article className="App">
-        <QuizContainer />
-      </article>
-    );
-  }
+function App() {
+  return (
+    <article className="App">
+      <Quiz />
+      <Footer />
+    </article>
+  );
 }
 
 export default App;

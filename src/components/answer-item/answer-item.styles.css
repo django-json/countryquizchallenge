@@ -11,12 +11,13 @@
 	border: 2px solid var(--light-blue);
 	border-radius: 12px;
 	cursor: pointer;
+	margin-bottom: var(--space-md);
 }
 
 .answer-item:hover {
 	background: var(--orange);
 	color: var(--white-primary);
-	border: none;
+	border-color: var(--orange);
 	transition: .3s;
 }
 
@@ -34,6 +35,10 @@
 	border: none;
 }
 
+.answer-item--disabled {
+	pointer-events: none;
+}
+
 .answer-item__details {
 	display: flex;
 	align-items: center;
@@ -42,4 +47,15 @@
 .answer-item__letter {
 	margin-right: var(--space-lg);
 	font-size: var(--text-md);
+}
+
+@media screen and (max-width: 500px) {
+	.answer-item {
+		padding: var(--space-xs) calc(var(--space-sm) * 0.9);
+		margin-bottom: calc(1.5 * var(--space-sm));
+	}
+
+	.answer-item__letter {
+		margin-right: calc(1.3 * var(--space-md));
+	}
 }

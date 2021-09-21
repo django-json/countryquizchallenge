@@ -3,22 +3,39 @@ import classNames from "classnames";
 
 import "./answer-item.styles.css";
 
-const AnswerItem = ({ item, correct, checking, handleClick }) => {
+const letters = ["A", "B", "C", "D"];
+
+const AnswerItem = ({
+	index,
+	answerOption,
+	userAnswer,
+	answer,
+	wrongAnswer,
+	handleClick,
+}) => {
+	const correctCondition =
+		(userAnswer === answerOption && userAnswer === answer) ||
+		(answer === answerOption && wrongAnswer !== null);
+
 	const classes = classNames("answer-item", {
-		"answer-item--bg-correct": correct && checking,
-		"answer-item--bg-wrong": !correct && checking,
+		"answer-item--bg-correct": correctCondition,
+		"answer-item--bg-wrong": wrongAnswer === answerOption,
+		"answer-item--disabled": wrongAnswer || userAnswer, // disable options when user choose an answer
 	});
 
 	return (
-		<li className={classes} onClick={handleClick}>
+		<li className={classes} onClick={() => handleClick(answerOption)}>
 			<div className="answer-item__details">
-				<span className="answer-item__letter">{item.letter}</span>
-				<span className="answer-item__name">{item.name}</span>
+				<span className="answer-item__letter">{letters[index]}</span>
+				<span className="answer-item__name">{answerOption}</span>
 			</div>
-			{checking && correct ? (
+			{correctCondition ? (
 				<i className="material-icons">check_circle_outline</i>
 			) : (
-				checking && <i className="material-icons">highlight_off</i>
+				wrongAnswer === answerOption &&
+				userAnswer !== null && (
+					<i className="material-icons">highlight_off</i>
+				)
 			)}
 		</li>
 	);
@@ -27,8 +44,10 @@ const AnswerItem = ({ item, correct, checking, handleClick }) => {
 export default AnswerItem;
 
 AnswerItem.defaultProps = {
-	checking: false,
-	correct: false,
-	item: { letter: "A", name: "Afghanistan" },
+	index: 0,
+	answerOption: "Philippines",
+	answer: null,
+	userAnswer: null,
+	wrongAnswer: null,
 	handleClick: () => {},
 };

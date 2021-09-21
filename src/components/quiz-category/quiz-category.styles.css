@@ -1,0 +1,11 @@
+.quiz-category > h2 {
+	font-weight: 700;
+	font-size: var(--text-md);
+	color: var(--blue);
+	margin-bottom: calc(1.3 * var(--space-md));
+}
+
+.quiz-category .btn {
+	display: block;
+	margin-bottom: var(--space-md);
+}
