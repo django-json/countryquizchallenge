@@ -53,22 +53,22 @@ export const transformData = (data, category) => {
 
 		const otherOptions = shuffledData
 			.slice(randomNumber, randomNumber + 3)
-			.map((country) => country.name); //Get other 3 random options
-		const options = shuffle([...otherOptions, country.name]);
+			.map((country) => country.name.common); //Get other 3 random options
+		const options = shuffle([...otherOptions, country.name.common]);
 
 		return category === "capital"
 			? {
 					id: index,
-					question: `${country.capital} is the capital of?`,
+					question: `${country.capital[0]} is the capital of?`,
 					options,
-					answer: country.name,
+					answer: country.name.common,
 			  }
 			: {
 					id: index,
 					question: `Which country does this flag belong to?`,
 					options,
-					answer: country.name,
-					flag_link: country.flag,
+					answer: country.name.common,
+					flag_link: country.flags.svg,
 			  };
 	});
 };

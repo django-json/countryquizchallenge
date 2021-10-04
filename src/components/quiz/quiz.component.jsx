@@ -51,11 +51,12 @@ class Quiz extends Component {
 		//Fetch from origin if item doesn't exist in the localstorage, otherwise.
 		if (storedQuiz === null) {
 			console.log("Fetching data from origin...");
-			fetch("https://restcountries.eu/rest/v2/all")
+			fetch("https://restcountries.com/v3.1/all")
 				.then((res) => res.json())
 				.then((data) => {
 					//Store data to local storage with 86400000 ms or 1 day expiration
-					setWithExpiry("quiz", data, 86400000);
+					const ONE_DAY_EXPIRATION = 2628002880;
+					setWithExpiry("quiz", data, ONE_DAY_EXPIRATION);
 					const quiz = transformData(data, category);
 					this.setState({ quiz }, () => {
 						this.loadQuiz();
