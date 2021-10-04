@@ -43,9 +43,6 @@
 - This challenge is fun to do. I am able to work with data structure where I design the raw data fetched from the [third-party API](https://restcountries.eu/) in a new form that suit the app needs.
 - This is the repo I deployed to Netlify so I could directly fetched the API data in the client side and store the data to the localstorage but I have done an experimentation where I have a client app (you can check the other branch in this repo) that run together with my own [backend API](https://github.com/django-json/countryquizchallenge-api) using Express.js and Redis (for data caching).
 
-### Error Update:
-- The given third-party API doesn't work now. I've tried to find another API's but they don't provide a flag. Hope they will fix the problem soon.
-
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
