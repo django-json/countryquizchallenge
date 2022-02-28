@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import AnswerItem from "../answer-item/answer-item.component";
 
-const List = ({ items, itemRenderer, className ...props}) => (
+const List = ({ items, itemRenderer, className, ...props}) => (
 	<ul className={`${className} list`}>
 		{items.map(item, index) => {
 			// Set new props for the item renderer
